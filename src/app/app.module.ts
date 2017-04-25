@@ -14,6 +14,8 @@ import { CalendarPage } from '../pages/calendar-page/calendar-page'
 import { StoriaUsers } from "../providers/storiaUsers";
 import { HttpModule } from '@angular/http';
 import { Calendar } from '@ionic-native/calendar';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { Calendar } from '@ionic-native/calendar';
     SplashScreen,    
     StoriaUsers,
     Calendar,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
     
   ]

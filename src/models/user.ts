@@ -10,3 +10,13 @@ export interface User {
   BirthDate: Date;
   Picture: string;
 }
+
+export interface CreateUser {
+  FirstName: string;
+  LastName: string;
+  TelNumber: string;
+  Password: string;
+  AccountType: string;
+  BirthDate: Date;
+  Picture: string;
+}

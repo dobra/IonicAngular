@@ -17,5 +17,40 @@
 
 
 <ion-content padding>
+  <ion-item>
+    <ion-label color="primary" floating>First Name</ion-label>
+    <ion-input  [(ngModel)]="userCreate.FirstName" type="text"></ion-input>
+  </ion-item>
+
+    <ion-item>
+    <ion-label color="primary" floating>Last Name</ion-label>
+    <ion-input  [(ngModel)]="userCreate.LastName" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" floating>Phone Number</ion-label>
+    <ion-input  [(ngModel)]="userCreate.TelNumber" type="tel"></ion-input>
+  </ion-item>
+
+   <ion-item>
+    <ion-label color="primary" floating>Password</ion-label>
+    <ion-input (keyup)="onKey($event)" [(ngModel)]="password" type="password"></ion-input>
+  </ion-item>
+
+     <ion-item>
+    <ion-label color="primary" floating>Confirm Password</ion-label>
+    <ion-input (keyup)="onKey($event)" [(ngModel)]="confirmpassword" type="password"></ion-input>
+  </ion-item>
+
+<ion-item>
+  <ion-label floating >Date</ion-label>
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="userCreate.BirthDate"></ion-datetime>
+</ion-item>
+
+
+<ion-item>
+ <button (click)="GetPicture()" ion-button full>Get Picture</button>
+</ion-item>
+ 
 
 </ion-content>
