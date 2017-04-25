@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CreateUser } from "../../models/user";
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Http } from '@angular/http'
 
 
 /**
@@ -20,19 +21,24 @@ export class CreateUserPage {
   password : string;
   confirmpassword : string;
 
+    baseUrl: String;
+    coursesUrl : String;
+    allUsersRetrievalUrl : String;
+    galleryUrl : String;
+    allReservationsUrl : String;
+    addUserUrl : String;
 
 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, private http: Http) {
     this.userCreate = {
-"FirstName": "",
-"LastName": "",
-"TelNumber": "",
-"Password": "",
-"AccountType": "",
-"BirthDate": new Date,
-"Picture": ""
-}
+      "FirstName": "",
+      "LastName": "",
+      "TelNumber": "",
+      "Password": "",
+      "AccountType": "",
+      "BirthDate": new Date,
+      "Picture": ""
+    }
   
   
   }
@@ -51,14 +57,37 @@ export class CreateUserPage {
     let options = {
     destinationType   : this.camera.DestinationType.DATA_URL,
     sourceType        : this.camera.PictureSourceType.PHOTOLIBRARY
-};
+    };
 
-this.camera.getPicture(options).then((imageData) => {
- // imageData is either a base64 encoded string or a file URI
- // If it's base64:
- let base64Image = 'data:image/jpeg;base64,' + imageData;
-}, (err) => {
- // Handle error
-});
+    this.camera.getPicture(options).then((imageData) => {
+    // imageData is either a base64 encoded string or a file URI
+    // If it's base64:
+    let base64Image = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+    // Handle error
+    });
+  }
+
+  CreateUser()
+  {
+        this.baseUrl = 'https://storiapi.azurewebsites.net';
+        this.coursesUrl = 'getallcourses';
+        this.allReservationsUrl = 'getallreservations';
+        this.galleryUrl = 'getallimages';
+        this.addUserUrl = 'adduser';
+
+        if(this.password == this.confirmpassword)
+        {
+          this.userCreate.Password = this.password;
+          console.log("User: "+ JSON.stringify(this.userCreate));
+        }
+
+    // this.http.post(this.baseUrl + '/' + this.addUserUrl, this.userCreate)
+    //         .map(res =>  res.json())
+    //         .subscribe(
+    //             data => {console.log(data);},
+    //             err => console.log(err),
+    //             () => console.log('Fetching complete for Server Metrics')
+    //         );
   }
 }
