@@ -10,8 +10,10 @@ import { UsersPage } from "../pages/users/users";
 import { CreateReservationPage } from '../pages/create-reservation-page/create-reservation-page';
 import { CreateUserPage } from '../pages/create-user-page/create-user-page';
 import { ViewReservationsPage } from '../pages/view-reservations-page/view-reservations-page';
+import { CalendarPage } from '../pages/calendar-page/calendar-page'
 import { StoriaUsers } from "../providers/storiaUsers";
 import { HttpModule } from '@angular/http';
+import { Calendar } from '@ionic-native/calendar';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { HttpModule } from '@angular/http';
     UsersPage,
     CreateReservationPage,
     CreateUserPage,
-    ViewReservationsPage
+    ViewReservationsPage,
+    CalendarPage
   ],
   imports: [
     BrowserModule,
@@ -32,12 +35,14 @@ import { HttpModule } from '@angular/http';
     UsersPage,
     CreateReservationPage,
     CreateUserPage,
-    ViewReservationsPage
+    ViewReservationsPage,
+    CalendarPage
   ],
   providers: [
     StatusBar,
     SplashScreen,    
     StoriaUsers,
+    Calendar,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
     
   ]

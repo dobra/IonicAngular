@@ -9,7 +9,7 @@ import { UsersPage } from '../pages/users/users';
 import { CreateReservationPage } from '../pages/create-reservation-page/create-reservation-page';
 import { CreateUserPage } from '../pages/create-user-page/create-user-page';
 import { ViewReservationsPage } from '../pages/view-reservations-page/view-reservations-page';
-
+import { CalendarPage } from '../pages/calendar-page/calendar-page';
 
 
 @Component({
@@ -35,7 +35,8 @@ export class MyApp {
       { title: 'View Users', component: UsersPage },
       { title: 'Create User', component: CreateUserPage },
       { title: 'View Reservations', component: ViewReservationsPage },   
-      { title: 'Create Reservation', component: CreateReservationPage },   
+      { title: 'Create Reservation', component: CreateReservationPage },  
+      { title: 'View Calendar', component:  CalendarPage },  
     ];
   }
 
