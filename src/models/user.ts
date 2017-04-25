@@ -17,6 +17,6 @@ export interface CreateUser {
   TelNumber: string;
   Password: string;
   AccountType: string;
-  BirthDate: Date;
+  BirthDate: string;
   Picture: string;
 }

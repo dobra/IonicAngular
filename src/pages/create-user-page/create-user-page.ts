@@ -35,9 +35,9 @@ export class CreateUserPage {
       "LastName": "",
       "TelNumber": "",
       "Password": "",
-      "AccountType": "",
-      "BirthDate": new Date,
-      "Picture": ""
+      "AccountType": "0",
+      "BirthDate": "",
+      "Picture": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTRVy67OF98hLfy6VWiIJ6nZewB3vXXNGezgtpDrfSWMDVXbbbE"
     }
   
   
@@ -76,18 +76,30 @@ export class CreateUserPage {
         this.galleryUrl = 'getallimages';
         this.addUserUrl = 'adduser';
 
+        console.log("User: "+ JSON.stringify(this.userCreate));
+
         if(this.password == this.confirmpassword)
         {
           this.userCreate.Password = this.password;
           console.log("User: "+ JSON.stringify(this.userCreate));
         }
 
-    // this.http.post(this.baseUrl + '/' + this.addUserUrl, this.userCreate)
-    //         .map(res =>  res.json())
-    //         .subscribe(
-    //             data => {console.log(data);},
-    //             err => console.log(err),
-    //             () => console.log('Fetching complete for Server Metrics')
-    //         );
+        
+        this.userCreate.FirstName = "'"+this.userCreate.FirstName+"'";
+        this.userCreate.LastName = "'"+this.userCreate.LastName+"'";
+        this.userCreate.TelNumber = "'"+this.userCreate.TelNumber+"'";
+        this.userCreate.Password = "'"+this.userCreate.Password+"'";
+        this.userCreate.AccountType = "'"+this.userCreate.AccountType+"'";
+        this.userCreate.BirthDate = "'"+this.userCreate.BirthDate+"'";
+        this.userCreate.Picture = "'"+this.userCreate.Picture+"'";
+
+
+    this.http.post(this.baseUrl + '/' + this.addUserUrl, JSON.stringify(this.userCreate))
+            .map(res =>  res.json())
+            .subscribe(
+                data => {console.log(data);},
+                err => console.log(err),
+                () => console.log('Fetching complete for Server Metrics')
+            );
   }
 }
