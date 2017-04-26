@@ -4,6 +4,9 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+
+<!-- Item with an avatar on the left and button on the right -->
 <ion-header>
   <ion-navbar>
     <button ion-button icon-only menuToggle>
@@ -15,34 +18,39 @@
   </ion-navbar>
 </ion-header>
 
+<!--ion-content padding class="login-content" style="background-image: url('http://dreamicus.com/data/image/image-06.jpg')"-->
+<ion-content padding class="login-content" style="background-image: url('build/img/Login.png');
+                                                  background-size: cover;
+                                                  background-position: center;">
 
-<ion-content padding>
-  <ion-item>
+                                                                                         
+<!-- ion-content  -->
+  <ion-item class="item-trns text-center">
     <ion-label color="primary" floating>First Name</ion-label>
     <ion-input  [(ngModel)]="userCreate.FirstName" type="text"></ion-input>
   </ion-item>
 
-    <ion-item>
+    <ion-item class="item-trns text-center">
     <ion-label color="primary" floating>Last Name</ion-label>
     <ion-input  [(ngModel)]="userCreate.LastName" type="text"></ion-input>
   </ion-item>
 
-  <ion-item>
+  <ion-item class="item-trns text-center">
     <ion-label color="primary" floating>Phone Number</ion-label>
     <ion-input  [(ngModel)]="userCreate.TelNumber" type="tel"></ion-input>
   </ion-item>
 
-   <ion-item>
+   <ion-item class="item-trns text-center">
     <ion-label color="primary" floating>Password</ion-label>
     <ion-input [(ngModel)]="password" type="password"></ion-input>
   </ion-item>
 
-     <ion-item>
+     <ion-item class="item-trns text-center">
     <ion-label color="primary" floating>Confirm Password</ion-label>
     <ion-input [(ngModel)]="confirmpassword" type="password"></ion-input>
   </ion-item>
 
-<ion-item>
+<ion-item class="item-trns text-center">
   <ion-label floating >Date</ion-label>
   <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="userCreate.BirthDate"></ion-datetime>
 </ion-item>
@@ -55,6 +63,5 @@
 <ion-item>
  <button ion-button color="secondary" (click)="CreateUser()" ion-button full>Create User</button>
 </ion-item>
- 
 
 </ion-content>
