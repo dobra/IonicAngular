@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CreateUser } from "../../models/user";
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { Http } from '@angular/http'
-
+import { Http, RequestOptions, Headers } from '@angular/http'
 
 /**
  * Generated class for the CreateUserPage page.
@@ -76,8 +75,6 @@ export class CreateUserPage {
         this.galleryUrl = 'getallimages';
         this.addUserUrl = 'adduser';
 
-        console.log("User: "+ JSON.stringify(this.userCreate));
-
         if(this.password == this.confirmpassword)
         {
           this.userCreate.Password = this.password;
@@ -90,16 +87,20 @@ export class CreateUserPage {
         this.userCreate.TelNumber = "'"+this.userCreate.TelNumber+"'";
         this.userCreate.Password = "'"+this.userCreate.Password+"'";
         this.userCreate.AccountType = "'"+this.userCreate.AccountType+"'";
-        this.userCreate.BirthDate = "'"+this.userCreate.BirthDate+"'";
-        this.userCreate.Picture = "'"+this.userCreate.Picture+"'";
+       // this.userCreate.BirthDate = "'"+this.userCreate.BirthDate+"'";
+       this.userCreate.BirthDate = "'"+"2017-10-10 15:30:00"+"'";
+       this.userCreate.Picture = "'"+this.userCreate.Picture+"'";
 
 
-    this.http.post(this.baseUrl + '/' + this.addUserUrl, JSON.stringify(this.userCreate))
+let headers = new Headers({ 'Content-Type': 'application/json' });
+let options = new RequestOptions({ headers: headers });
+
+    this.http.post(this.baseUrl + '/' + this.addUserUrl, this.userCreate, headers )
             .map(res =>  res.json())
             .subscribe(
                 data => {console.log(data);},
                 err => console.log(err),
-                () => console.log('Fetching complete for Server Metrics')
+                () => console.log(JSON.stringify(this.userCreate))
             );
   }
 }
