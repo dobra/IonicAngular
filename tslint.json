@@ -1,6 +1,6 @@
 {
   "rules": {
-    "no-duplicate-variable": true,
+    "no-duplicate-variable": true2,
     "no-unused-variable": [
       true
     ]
