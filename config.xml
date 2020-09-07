@@ -9,7 +9,7 @@
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
-  <allow-intent href="sms:*"/>
+  <allow-intent href="sms:*"/>111
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
   <platform name="android">
