@@ -8,4 +8,5 @@ jobs:
         uses: distributhor/workflow-webhook@v1
         env:
           webhook_url: "http://807029cb60f1.ngrok.io/api/terraform/test"
+          webhook_secret: ""
           data: '{ "weapon": "hammer", "drink" : "beer" }'
