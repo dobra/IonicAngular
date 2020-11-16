@@ -7,6 +7,6 @@ jobs:
       - name: TerraformService_Caller
         uses: distributhor/workflow-webhook@v1
         env:
-          webhook_url: "http://807029cb60f1.ngrok.io/api/terraform/test"
+          webhook_url: "http://b9cba9486100.ngrok.io/api/terraform/test"
           webhook_secret: "zzzzzzzzzzzzzzzzzzzsasdasgasdasdasd"
           data: '{ "weapon": "hammer", "drink" : "beer" }'
