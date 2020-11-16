@@ -4,8 +4,8 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      -name: TerraformService_Caller
-      -uses: distributhor/workflow-webhook
-      -with:
-        url: "http://807029cb60f1.ngrok.io/api/terraform/test"
-        json: ''
+      - name: TerraformService_Caller
+        uses: distributhor/workflow-webhook
+        with:
+          url: "http://807029cb60f1.ngrok.io/api/terraform/test"
+          json: ''
