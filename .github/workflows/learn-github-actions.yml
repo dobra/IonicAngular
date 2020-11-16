@@ -7,5 +7,4 @@ jobs:
       - name: TerraformService_Caller
         uses: distributhor/workflow-webhook@v1
         with:
-          url: "http://807029cb60f1.ngrok.io/api/terraform/test"
-          json: ''
+          webhook_url: "http://807029cb60f1.ngrok.io/api/terraform/test"
