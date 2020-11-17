@@ -1,5 +1,7 @@
 name: learn-github-actions
-on: [pull_request]
+on: 
+  pull_request:
+    types: [opened, closed]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
