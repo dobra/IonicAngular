@@ -1,5 +1,5 @@
 {
-  "rules": {
+  "rules": {zzz
     "no-duplicate-variable": true2,
     "no-unused-variable": [
       true
