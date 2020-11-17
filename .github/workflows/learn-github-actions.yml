@@ -1,22 +1,31 @@
-name: learn-github-actions
+name: pull_request_actions
 on: 
   pull_request:
-    types: [opened, closed, edited]
+    types: [opened]
 jobs:
-  check-bats-version:
+  open-pull-request:
     runs-on: ubuntu-latest
     steps:
-       #- name: Test
-       #  uses: actions/github-script@0.3.0
-       #  with:
-       #    github-token: ${{github.token}}
-       #    script: |
-       #     const core = require('@actions/core')
-       #     const prNumber = context.payload.number;
-       #     core.exportVariable('PULL_NUMBER', prNumber);
-       - name: TerraformService_Caller
+       - name: TerraformService_Caller_Plan
          uses: distributhor/workflow-webhook@v1
          env:
           webhook_url: "http://ac3c8268c0e4.ngrok.io/api/terraform/command"
           webhook_secret: "zzzzzzzzzzzzzzzzzzzsasdasgasdasdasd"
-          data: '{ "Argument": "GITHUB_REF", "ArtifactUrl" : "${{github.repository}}", "PrNumber":${{github.event.number}} }'
+          data: '{ "Argument": "plan", "ArtifactUrl" : "${{github.repository}}", "PrNumber":${{github.event.number}} }'
+          
+
+name: pull_request_closed
+on: 
+  pull_request:
+    types: [closed]
+jobs:
+  close-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+       - name: TerraformService_Caller_Destroy
+         uses: distributhor/workflow-webhook@v1
+         env:
+          webhook_url: "http://ac3c8268c0e4.ngrok.io/api/terraform/command"
+          webhook_secret: "zzzzzzzzzzzzzzzzzzzsasdasgasdasdasd"
+          data: '{ "Argument": "destroy", "ArtifactUrl" : "${{github.repository}}", "PrNumber":${{github.event.number}} }'
+
