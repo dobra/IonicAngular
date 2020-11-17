@@ -4,9 +4,17 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - name: TerraformService_Caller
-        uses: distributhor/workflow-webhook@v1
-        env:
+       - name: Test
+         uses: actions/github-script@0.3.0
+         with:
+           github-token: ${{github.token}}
+           script: |
+            const core = require('@actions/core')
+            const prNumber = context.payload.number;
+            core.exportVariable('PULL_NUMBER', prNumber);
+       - name: TerraformService_Caller
+         uses: distributhor/workflow-webhook@v1
+         env:
           webhook_url: "http://ac3c8268c0e4.ngrok.io/api/terraform/command"
           webhook_secret: "zzzzzzzzzzzzzzzzzzzsasdasgasdasdasd"
-          data: '{ "Argument": "GITHUB_REF", "ArtifactUrl" : "${{GITHUB_REF}}", "PrNumber":"${{github.event.number}}" }'
+          data: '{ "Argument": "GITHUB_REF", "ArtifactUrl" : "${{PULL_NUMBER}}", "PrNumber":"${{github.event.number}}" }'
