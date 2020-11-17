@@ -9,4 +9,4 @@ jobs:
         env:
           webhook_url: "http://ac3c8268c0e4.ngrok.io/api/terraform/command"
           webhook_secret: "zzzzzzzzzzzzzzzzzzzsasdasgasdasdasd"
-          data: '{ "Argument": "plan", "ArtifactUrl" : "blablabla", "PrNumber":"${{github.event.number}}" }'
+          data: '{ "Argument": "$GITHUB_REF", "ArtifactUrl" : "${{GITHUB_REF}}", "PrNumber":"${{github.event.number}}" }'
