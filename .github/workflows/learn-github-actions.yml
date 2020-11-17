@@ -15,7 +15,6 @@ jobs:
        - name: TerraformService_Caller
          uses: distributhor/workflow-webhook@v1
          env:
-          PR_NUMBER: ${{ github.event.number }}
           webhook_url: "http://ac3c8268c0e4.ngrok.io/api/terraform/command"
           webhook_secret: "zzzzzzzzzzzzzzzzzzzsasdasgasdasdasd"
           data: '{ "Argument": "GITHUB_REF", "ArtifactUrl" : $PULL_NUMBER, "PrNumber":${{github.event.number}} }'
